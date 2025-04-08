@@ -1,3 +1,5 @@
-rasa==3.6.16
+--extra-index-url https://pypi.rasa.com/simple
+
+rasa==3.6.21
 rasa-sdk==3.6.1
 requests
