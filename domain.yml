@@ -1,0 +1,42 @@
+version: "3.1"
+
+intents:
+  - saludar
+  - decir_nombre
+  - despedirse
+  - preguntar_curiosidad
+  - negar_agradecer
+
+entities:
+  - nombre_usuario
+
+
+slots:
+  nombre_usuario:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: nombre_usuario
+
+
+
+
+responses:
+  utter_saludo_personalizado:
+  - text: "¡Genial, {nombre_usuario}! ¿Qué quieres hacer?"
+
+  utter_responder_agradecimiento:
+  - text: "Gracias a ti, ¿quieres otro dato curioso? 😃"
+
+  utter_despedida:
+    - text: "¡Hasta pronto, {nombre_usuario}!"
+
+
+actions:
+  - action_preguntar_nombre
+  - action_contar_curiosidad
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

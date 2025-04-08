@@ -1,0 +1,27 @@
+version: "3.1"
+stories:
+
+- story: Saludo
+  steps:
+    - intent: saludar
+    - action: action_preguntar_nombre
+    - intent: decir_nombre
+      entities:
+        - nombre_usuario: Ana
+    - slot_was_set:
+        - nombre_usuario: Ana
+    - action: utter_saludo_personalizado
+
+- story: Usuario quiere curiosidad
+  steps:
+    - intent: saludar
+    - action: action_preguntar_nombre
+    - intent: decir_nombre
+      entities:
+        - nombre_usuario: Ana
+    - slot_was_set:
+        - nombre_usuario: Ana
+    - action: utter_saludo_personalizado
+    - intent: preguntar_curiosidad
+    - action: action_contar_curiosidad
+
